@@ -31,6 +31,7 @@ $state.sidebarOpen.value = true
     <template #sidebar>
       <DashboardTreeView />
     </template>
+
     <NuxtPage />
   </NuxtLayout>
 </template>
