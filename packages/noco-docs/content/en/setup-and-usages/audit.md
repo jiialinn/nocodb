@@ -1,15 +1,21 @@
 ---
-title: 'Audit'
+title: 'Team & Settings > Audit'
 description: 'NocoDB provides all the user operation logs under Audit log'
-position: 590
+position: 610
 category: 'Product'
-menuTitle: 'Audit'
+menuTitle: 'Team & Settings > Audit'
 ---
 
-We are keeping all the user operation logs under Audit. Audits logs can be accessed by clicking `Team & Settings` from the left navigation drawer.
+## Overview
 
-<img width="367" alt="image" src="https://user-images.githubusercontent.com/35857179/170426881-ba645392-24a2-4446-b501-0595a0887724.png">
+We are keeping all the user operation logs under Audit. To access it, click the down arrow button next to Project Name on the top left side, then select `Team & Settings`.
+
+<alert>
+We can disable audit logs by setting `NC_DISABLE_AUDIT` to `true`.
+</alert>
+
+<img width="322" alt="image" src="https://user-images.githubusercontent.com/35857179/194856648-67936db0-ee4d-4060-be3d-af9f86ef8fc6.png">
 
 Then, under SETTINGS, click `Audit`.
 
-<img width="1335" alt="image" src="https://user-images.githubusercontent.com/35857179/170428570-627a3763-26ae-4b8f-b5a8-0b8b42638464.png">
+<img width="1399" alt="image" src="https://user-images.githubusercontent.com/35857179/194796474-417395db-08d5-45e5-8be4-c30ff0027e45.png">

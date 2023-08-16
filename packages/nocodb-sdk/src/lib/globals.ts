@@ -3,6 +3,7 @@ export enum ViewTypes {
   GALLERY = 2,
   GRID = 3,
   KANBAN = 4,
+  MAP = 5,
 }
 
 export enum RelationTypes {
@@ -12,6 +13,7 @@ export enum RelationTypes {
 }
 
 export enum ExportTypes {
+  EXCEL = 'excel',
   CSV = 'csv',
 }
 
@@ -33,21 +35,25 @@ export enum AuditOperationTypes {
   WEBHOOKS = 'WEBHOOKS',
   AUTHENTICATION = 'AUTHENTICATION',
   TABLE_COLUMN = 'TABLE_COLUMN',
+  ORG_USER = 'ORG_USER',
 }
 
 export enum AuditOperationSubTypes {
   UPDATE = 'UPDATE',
   INSERT = 'INSERT',
+  BULK_INSERT = 'BULK_INSERT',
+  BULK_UPDATE = 'BULK_UPDATE',
+  BULK_DELETE = 'BULK_DELETE',
+  LINK_RECORD = 'LINK_RECORD',
+  UNLINK_RECORD = 'UNLINK_RECORD',
   DELETE = 'DELETE',
-  CREATED = 'CREATED',
-  DELETED = 'DELETED',
-  RENAMED = 'RENAMED',
+  CREATE = 'CREATE',
+  RENAME = 'RENAME',
   IMPORT_FROM_ZIP = 'IMPORT_FROM_ZIP',
   EXPORT_TO_FS = 'EXPORT_TO_FS',
   EXPORT_TO_ZIP = 'EXPORT_TO_ZIP',
-  UPDATED = 'UPDATED',
   SIGNIN = 'SIGNIN',
-  SIGN = 'SIGN',
+  SIGNUP = 'SIGNUP',
   PASSWORD_RESET = 'PASSWORD_RESET',
   PASSWORD_FORGOT = 'PASSWORD_FORGOT',
   PASSWORD_CHANGE = 'PASSWORD_CHANGE',
@@ -65,4 +71,8 @@ export enum PluginCategory {
 export enum ModelTypes {
   TABLE = 'table',
   VIEW = 'view',
+}
+
+export enum ProjectStatus {
+  JOB = 'job',
 }

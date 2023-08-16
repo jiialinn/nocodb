@@ -6,7 +6,7 @@ category: "Product"
 menuTitle: "Table Operations"
 ---
 
-Once you have created a new NocoDB project you can open it, In the browser, the URL would be like `example.com/dashboard/#/nc/project_id`.
+Once you have created a new NocoDB project you can open it, In the browser, the URL would be like `example.com/dashboard/#/nc/<project_id>`.
 
 ## Table
 
@@ -14,35 +14,47 @@ Once you have created a new NocoDB project you can open it, In the browser, the 
 
 Now you can start creating new tables by simply clicking one of the following options.
 
-- Click the plus button next to Table menu
-- Click Add / Import, then click Add new table
+- Click `Add new table` button
+- Hover `Add new table` button in table menu, click three dots, use Quick Import to create
+- Drag and drop CSV, JSON or Excel file to import
 
-<img width="632" alt="image" src="https://user-images.githubusercontent.com/35857179/168772379-63d7e92c-39ce-4d91-ac1e-279591833e0e.png">
+<img width="1505" alt="image" src="https://user-images.githubusercontent.com/35857179/194795025-afd81191-4743-435b-b802-88367d2663f9.png">
 
 A modal will be popped up. Input the corresponding info and enable or disable default columns and click `Submit` button.
 
-![table_create_modal](https://user-images.githubusercontent.com/61551451/126772859-5a301c45-d830-4df2-a05a-43b15dd77728.png)
+<img width="1510" alt="image" src="https://user-images.githubusercontent.com/35857179/194795048-aef59b23-ba3f-40ca-88bd-19ee512d7114.png">
+
+Click Show more for advanced settings.
 
 <alert>
 Note: You can't disable the `id` column since NocoDB needs a primary column for every table. You can rename it after the creation.
 </alert>
 
+<img width="756" alt="image" src="https://user-images.githubusercontent.com/35857179/194795067-e9275cec-f375-45b4-80f9-098745d83e5c.png">
+
 After the successful submission, the table will be created and open as a new tab.  
 
-![table_created](https://user-images.githubusercontent.com/35857179/168411541-b0233cf1-4683-490b-bdec-f2546a2d9015.png)
+<img width="1504" alt="image" src="https://user-images.githubusercontent.com/35857179/194795081-f41ebd4d-7fa9-4f65-a66f-3d2375925106.png">
 
 ### Table Rename
 
 Right click on Table name on left hand project-tree menu, select `Rename`
+
+<img width="606" alt="image" src="https://user-images.githubusercontent.com/35857179/194795096-82b007fb-f57a-4141-938e-be502b1fb2cd.png">
+
 In modal popup, enter new table name and click `Submit` button
-  
-<img src="https://user-images.githubusercontent.com/86527202/144403447-1b2e4368-eb2b-40c0-901a-54e8adf9a80c.png" width="60%"/>
+
+<img width="1506" alt="image" src="https://user-images.githubusercontent.com/35857179/194795119-4aeb05e1-16d5-4b4f-bf6c-81752234d946.png">
 
 ### Table Delete
 
-The table can be deleted using the `delete` icon present in the toolbar within the table tab.
+Right click on Table name on left hand project-tree menu, select `Delete`
 
-![image](https://user-images.githubusercontent.com/35857179/168411589-540f50d2-78e3-4d97-b17c-1b9fad9f90b7.png)
+<img width="641" alt="image" src="https://user-images.githubusercontent.com/35857179/194795140-4fe71896-0802-45dd-9c93-64e51925be57.png">
+
+Click Yes to confirm the table deletion
+
+<img width="1507" alt="image" src="https://user-images.githubusercontent.com/35857179/194795152-9bdbf8df-846e-42f3-89d0-c68bce022cc1.png">
 
 ## Column
 
@@ -50,34 +62,45 @@ The table can be deleted using the `delete` icon present in the toolbar within t
 
 Click the `+` icon on the right corner of the table.
 
-![Pasted_Image_23_07_21__4_39_PM](https://user-images.githubusercontent.com/61551451/126773798-4470d632-69e0-4f5f-803b-e3597715fe22.png)
+<img width="352" alt="image" src="https://user-images.githubusercontent.com/35857179/189053971-a3d29b3b-1177-49fe-8178-8868528fe3e7.png">
 
-After the click, it will show a menu and you can enter the column name and choose the column type ([Abstract type](./abstract-types)).  
-Click `Save`button to create the new column.
+After the click, it will show a menu and you can enter the column name and choose the column type.  (See [Column Types](./column-types) for the full list).
 
-![image](https://user-images.githubusercontent.com/61551451/126774157-ae9af236-e1ad-4a54-adb7-1b96775cae57.png)  
-  
-& we have new column created as part of our table  
-![Pasted_Image_23_07_21__4_43_PM](https://user-images.githubusercontent.com/61551451/126774276-e947f510-2fe1-4595-afc1-a31d2c35a69a.png)  
-  
-> For more about Abstract type [click here](./abstract-types).
+<img width="459" alt="image" src="https://user-images.githubusercontent.com/35857179/189073266-a0f19e2e-5dd2-4343-8c74-4ef709da272c.png">
+
+You can also click `Show more` for additional menu options.
+
+![Screenshot 2023-03-03 at 8 13 07 PM](https://user-images.githubusercontent.com/86527202/222749857-0e793db2-a5d2-4b54-8d23-2a0cbbec8f5d.png)
+<!-- <img width="445" alt="image" src="https://user-images.githubusercontent.com/35857179/189075678-d18b799f-df13-4f78-a5a5-813e8d3277ae.png"> -->
+
+Click `Save` button to create the new column. 
+
+<img width="1509" alt="image" src="https://user-images.githubusercontent.com/35857179/194795274-08483315-5538-4685-8c08-261a9c2dfe14.png">
 
 ### Column Edit
-To edit column properties, click/hover on down arrow, select `Edit` from the menu.  
+
+To edit column properties, click the down arrow, select `Edit` from the menu.  
   
-<img src="https://user-images.githubusercontent.com/86527202/144404169-80d8b514-53cf-4bb1-8323-fd3cfda8816b.png" width="50%"/>  
+<img width="230" alt="image" src="https://user-images.githubusercontent.com/35857179/189077129-dfb7a815-3fc7-41ea-b72c-e57f3c30a7f4.png"> 
   
-You will be able to edit column name & associated datatype using pop-up modal.  
-For additional menu options, click `Show more options`  
+You will be able to edit column name & associated datatype using pop-up modal.  You can also click `Show more` for additional menu options.
   
-<img src="https://user-images.githubusercontent.com/86527202/144404188-146ab0dc-bd2b-4902-9369-a34253e2fad6.png" width="40%"/>
+<img width="497" alt="image" src="https://user-images.githubusercontent.com/35857179/189077270-7acdc818-3747-4307-93fb-e970cb7936f9.png">
+
+Prior to v0.104.3, Advanced menu by default displayed developer specific database configuration options. To avoid unintended tweaks from user, these are now hidden under an easter egg menu. To enable, double click on `show all`/`hide all` button in column edit modal.
+
+![Screenshot 2023-03-06 at 10 45 26 AM](https://user-images.githubusercontent.com/86527202/223024810-85dac1c6-87ef-4193-90cb-3a05be8ccc1d.png)
 
 
 ### Column Delete
 
-Column deletion can be done by using the `delete` option from the column header menu.
+To delete a column, click the down arrow, select `Delete` from the menu.  
 
-![Pasted_Image_23_07_21__6_49_PM](https://user-images.githubusercontent.com/61551451/126787679-562aaa22-14b3-4ff8-8057-b8219e057110.png)
+<img width="256" alt="image" src="https://user-images.githubusercontent.com/35857179/189077566-c9376e4e-9ee8-4ffa-b437-1240894a30cd.png">
+
+Click `Yes` to confirm the column deletion. 
+
+<img width="1507" alt="image" src="https://user-images.githubusercontent.com/35857179/194795311-c2a5587e-d92f-4b88-a8a3-e20ac13c694b.png">
 
 ## Row
 
@@ -86,73 +109,93 @@ For adding new values to the table we need new rows, new rows can be added in tw
 ### Row Add (Using Form)
 
 - Click the `+` icon in the toolbar of the table tab.  
-  <img src="https://user-images.githubusercontent.com/86527202/144405563-50573b1c-1bd3-43ea-8020-357fc7ef9e42.png" width="50%"/>
-- Now it will open a modal Form to enter the values, provide the values and press the save button.  
-  <img src="https://user-images.githubusercontent.com/61551451/126784347-b82f9dfd-4c6d-4d65-be07-80e051ff19de.png" width="75%">
+  <img width="1038" alt="image" src="https://user-images.githubusercontent.com/35857179/189079143-8f3e3dd6-9b62-4fb0-9a78-a57545026d11.png">
+- Then you can enter the values and click `Save row`.  
+  <img width="1506" alt="image" src="https://user-images.githubusercontent.com/35857179/194795353-2d90316f-a5e4-41af-8931-20b3c6ed08dc.png">
 - After saving it will be there on your table.  
-  ![image](https://user-images.githubusercontent.com/61551451/126785340-e9b80ad0-ba06-4a22-8a01-876d829c9673.png)
+  <img width="620" alt="image" src="https://user-images.githubusercontent.com/35857179/194795402-d7c26ced-a009-43d9-a4a4-e3c2653225f0.png">
 
 ### Row Add (Using Table Row at bottom of page)
 
-- Click the bottom row of the table which contains `+` icon at the beginning.  
-  <img src="https://user-images.githubusercontent.com/86527202/144405773-bb0d00ef-264d-4941-b01f-3b7f0b1fc54d.png" width="40%"/>
-- Now it will add a new row in the table
+- Click the bottom row of the table `+ Add new row`.
+  <img width="545" alt="image" src="https://user-images.githubusercontent.com/35857179/189079815-9a7ea5e3-4eb7-452e-99a8-78c271f2ad1f.png">
+- A new empty row will be created
+  <img width="567" alt="image" src="https://user-images.githubusercontent.com/35857179/189080009-3aeb70b4-92b0-4702-acb9-e5e52e31855e.png">
+
+### Row Add (Pressing Enter Key from Previous Row)
+
+When you finish editing a cell and press Enter, the cell in the next row with the same column will be highlighted.
+
+![image](https://user-images.githubusercontent.com/35857179/203271676-bab64ca4-e0e4-4deb-9a62-609a97158911.png)
 
 ### Row Edit
+
 You can start editing by any of the following methods  
   - Double click on cell to edit  
   - Click on cell and start typing (this way it will clear the previous content)  
-  - Click on cell and press enter to start editing  
+  - Click on cell and press enter to start editing
 - And it will automatically save on blur event or if inactive.  
 
 ### Row Delete
 
 Right-click on anywhere in the row and then from the context menu select `Delete Row` option.  
-Bulk delete is also possible by selecting multiple rows by using the checkbox in first column and then `Delete Selected Rows` options from the right click context menu.  
-<img src="https://user-images.githubusercontent.com/86527202/144406191-ccff1382-e808-44e8-babe-bd937faf1b3d.png" width="40%"/>
+
+Bulk delete is also possible by selecting multiple rows by using the checkbox in first column and then `Delete Selected Rows` options from the right click context menu.
+
+<img width="568" alt="image" src="https://user-images.githubusercontent.com/35857179/189081764-9f13c286-e02a-40d0-93ea-4b1362d96827.png">
 
 ## Quick Import
 
-You can use Quick Import when you have data from external sources such as Airtable, CSV file or Microsoft Excel to an existing project by clicking `Add / Import` and choosing the corresponding options.
+You can use Quick Import when you have data from external sources such as Airtable, CSV file or Microsoft Excel to an existing project by either 
 
-![image](https://user-images.githubusercontent.com/35857179/168772072-937b037b-32b3-4e5b-b982-5ee4b9a4959c.png)
+- Hover `Add new table` button in table menu, click three dots, use Quick Import to create
+- Drag and drop CSV, JSON or Excel file to import
 
-### Import Airtable into an existing project
+<img width="1505" alt="image" src="https://user-images.githubusercontent.com/35857179/194795025-afd81191-4743-435b-b802-88367d2663f9.png">
 
-- See <a href="./import-airtable-to-sql-database-within-a-minute-for-free">here</a>
+### Import Airtable into an Existing Project
 
-### Import CSV data into an existing project
+- See <NuxtLink to="/setup-and-usages/import-airtable-to-sql-database-within-a-minute-for-free">here</NuxtLink>
 
-- Click `Add / Import` and click `CSV file`
-- Drag & drop or select file to upload or specify Excel file URL
-  ![image](https://user-images.githubusercontent.com/35857179/168412051-ed988659-011d-455b-ba32-be0a2e1184b0.png)
-- You can revise the table name, column name and column type. By default, the first column will be chosen as <a href="./primary-value" target="_blank">Primary Value</a> and cannot be deleted.
-  ![image](https://user-images.githubusercontent.com/35857179/168412069-aea8a8fb-09ab-4412-95b7-963bdbe24cfc.png)
-- Click `Import CSV` to start importing process. The table will be created and the data will be imported.
-  ![image](https://user-images.githubusercontent.com/35857179/168412172-9bb24ab9-da15-45cf-9b12-3af362fc604a.png)
+### Import CSV data into an Existing Project
 
-### Import Excel data into an existing project
+- Hover `Add new table` button in table menu, click three dots, and click `CSV file`
+- Drag & drop or select files (at most 5 files) to upload or specify CSV file URL, and Click Import
+  - **Auto-Select Field Types**: If it is checked, column types will be detected. Otherwise, it will default to `SingleLineText`.
+  - **Use First Row as Headers**: If it is checked, the first row will be treated as header row.
+  - **Import Data**: If it is checked, all data will be imported. Otherwise, only table will be created.
+  ![image](https://user-images.githubusercontent.com/35857179/197454479-1ed18dce-1d0b-4ee3-88b3-9b6a132dea2a.png)
+- You can revise the table name by double clicking it, column name and column type. By default, the first column will be chosen as <NuxtLink to="/setup-and-usages/display-value" target="_blank">Display Value</NuxtLink> and cannot be deleted.
+  ![image](https://user-images.githubusercontent.com/35857179/197454633-5b30323e-2b13-4c55-843a-948c093d373e.png)
+- Click `Import` to start importing process. The table will be created and the data will be imported.
+  ![image](https://user-images.githubusercontent.com/35857179/197455547-2d93df5e-a7f0-4c88-af53-990067625967.png)
 
-- Click `Add / Import` and click `Microsoft Excel`
-- Drag & drop or select file to upload or specify Excel file URL
-  ![image](https://user-images.githubusercontent.com/35857179/168412483-a12f7d90-1b91-48bb-96a7-2a16dc8c7b81.png)
-- You can revise the table name, column name and column type. By default, the first column will be chosen as <a href="./primary-value" target="_blank">Primary Value</a> and cannot be deleted.
+### Import Excel data into an Existing Project
+
+- Hover `Add new table` button in table menu, click three dots, and click `Microsoft Excel`
+- Drag & drop or select file (at most 1 file) to upload or specify Excel file URL and Click Import.
+  - **Auto-Select Field Types**: If it is checked, column types will be detected. Otherwise, it will default to `SingleLineText`.
+  - **Use First Row as Headers**: If it is checked, the first row will be treated as header row.
+  - **Import Data**: If it is checked, all data will be imported. Otherwise, only table will be created.
+  ![image](https://user-images.githubusercontent.com/35857179/197455788-8dd8a7d1-38f3-48c3-a05e-6ab0cf25045c.png)
+- You can revise the table name, column name and column type. By default, the first column will be chosen as <NuxtLink to="/setup-and-usages/display-value" target="_blank">Display Value</NuxtLink> and cannot be deleted.
   <alert>
   Note: If your Excel file contains multiple sheets, each sheet will be stored in a separate table.
   </alert>
 
-  ![image](https://user-images.githubusercontent.com/35857179/168412465-e46b4fcf-ec1c-4d32-bb56-eb62516829f5.png)
-- Click `Import Excel` to start importing process. The table(s) will be created and the data will be imported to the corresponding table(s).
-  ![image](https://user-images.githubusercontent.com/35857179/168413233-adfb85e2-8d52-46d8-a754-e2ec9f8d3234.png)
+  <img width="1449" alt="image" src="https://user-images.githubusercontent.com/35857179/194795771-77963196-8e10-4f45-b605-eb1089d6bc9b.png">
+- Click `Import` to start importing process. The table(s) will be created and the data will be imported to the corresponding table(s).
+  <img width="1508" alt="image" src="https://user-images.githubusercontent.com/35857179/194795789-80366467-9778-464b-bce0-a5c0dfe97522.png">
 
 ## Export Data
 
-You can export your data from a table as a CSV file by clicking `More` and `Download as CSV`.
+You can export your data from a table as a CSV file by clicking the down arrow next to Table name and hover on `Download`. Currently only CSV and XLSX formats are supported for export.
 
-![image](https://user-images.githubusercontent.com/35857179/163556138-2aa0a782-12e9-49c7-aadf-b7778e91557f.png)
+<img width="660" alt="image" src="https://user-images.githubusercontent.com/35857179/194795866-a2db2a9b-d8e3-43f2-aec5-085e1932a0a5.png">
 
 ## Import Data
 
-You can import your data in CSV format to a table by clicking `More` and `Upload CSV`.
+You can import your data in CSV format to a table by clicking the down arrow next to Table name and hover on `Upload`. Currently only CSV format is supported for upload.
 
-![image](https://user-images.githubusercontent.com/35857179/163556175-116b12c2-ca2e-4b54-a65a-39250541d873.png)
+<img width="668" alt="image" src="https://user-images.githubusercontent.com/35857179/194795880-60bf2003-0bef-45cd-aafa-1b97adb75d42.png">
+

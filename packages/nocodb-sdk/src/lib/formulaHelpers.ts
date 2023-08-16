@@ -8,18 +8,28 @@ export const jsepCurlyHook = {
     jsep.hooks.add('gobble-token', function gobbleCurlyLiteral(env) {
       const OCURLY_CODE = 123; // {
       const CCURLY_CODE = 125; // }
+      let start = -1;
       const { context } = env;
       if (
         !jsep.isIdentifierStart(context.code) &&
         context.code === OCURLY_CODE
       ) {
+        if (start == -1) {
+          start = context.index;
+        }
         context.index += 1;
-        const nodes = context.gobbleExpressions(CCURLY_CODE);
+        context.gobbleExpressions(CCURLY_CODE);
         if (context.code === CCURLY_CODE) {
           context.index += 1;
           env.node = {
             type: jsep.IDENTIFIER,
-            name: nodes.map((node) => node.name).join(' '),
+            name: /{{(.*?)}}/.test(context.expr)
+              ? // start would be the position of the first curly bracket
+                // add 2 to point to the first character for expressions like {{col1}}
+                context.expr.slice(start + 2, context.index - 1)
+              : // start would be the position of the first curly bracket
+                // add 1 to point to the first character for expressions like {col1}
+                context.expr.slice(start + 1, context.index - 1),
           };
           return env.node;
         } else {
@@ -129,6 +139,7 @@ export function jsepTreeToFormula(node) {
       'AVG',
       'ADD',
       'DATEADD',
+      'DATETIME_DIFF',
       'WEEKDAY',
       'AND',
       'OR',
@@ -162,15 +173,14 @@ export function jsepTreeToFormula(node) {
       'SWITCH',
       'URL',
     ];
-    if (!formulas.includes(node.name)) return '{' + node.name + '}';
+    if (!formulas.includes(node.name.toUpperCase())) return '{' + node.name + '}';
     return node.name;
   }
 
   if (node.type === 'Literal') {
     if (typeof node.value === 'string') {
-      return '"' + node.value + '"';
+      return String.raw`"${escapeLiteral(node.value)}"`;
     }
-
     return '' + node.value;
   }
 
@@ -202,4 +212,16 @@ export function jsepTreeToFormula(node) {
   }
 
   return '';
+}
+
+function escapeLiteral(v: string) {
+  return (
+    v
+      // replace \ to \\
+      .replace(/\\/g, `\\\\`)
+      // replace " to \"
+      .replace(/"/g, `\\"`)
+      // replace ' to \'
+      .replace(/'/g, `\\'`)
+  );
 }

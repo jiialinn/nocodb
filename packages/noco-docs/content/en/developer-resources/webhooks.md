@@ -10,17 +10,39 @@ menuTitle: "Webhooks"
 
 Some types of notifications can be triggered by a webhook after a particular event.
 
-- Open a Project, Select a table and Click 'More' > 'Webhooks'.
+### Open `View menu`, click on `Webhooks`
+  
+<img width="442" alt="image" src="https://user-images.githubusercontent.com/35857179/194849113-910ddafa-4b05-4492-a7a6-d9259d892eb9.png">
 
-![Screenshot 2022-02-22 at 11 16 18 AM](https://user-images.githubusercontent.com/86527202/155085373-f9b438ed-98c3-4fb1-9209-1bb52736a35d.png)
+### Click `Add New Webhook`
 
-- Click 'Create webhook'
+<img width="686" alt="image" src="https://user-images.githubusercontent.com/35857179/194849248-1d0b80c6-f65b-4075-8ebd-af7dc735c2c3.png">
 
-![image](https://user-images.githubusercontent.com/35857179/166660074-0a896ec9-9cd8-403e-a713-61c2cefbae28.png)
+### Configure Webhook
 
-- Configure the webhook
+  - General configurations
+    - Webhook Name
+    - Webhook Trigger
+    - Webhook Type
+  - Webhook Type specific configuration : additional configuration details depending on webhook type selected
+  - Webhook Conditional Trigger
+    - Only records meeting the criteria will trigger webhook   
+  
+<!-- ![Screenshot 2022-09-14 at 10 35 39 AM](https://user-images.githubusercontent.com/86527202/190064668-37245025-81f6-491c-b639-83c8fd131bc3.png) -->
+![Screenshot 2023-04-06 at 11 39 49 AM](https://user-images.githubusercontent.com/86527202/230288581-c613e591-1c32-4151-a2d1-df2bbf1367fd.png)
 
-![image](https://user-images.githubusercontent.com/35857179/166660248-a3c81a34-4334-48c2-846a-65759d761559.png)
+
+<!-- ![image](https://user-images.githubusercontent.com/35857179/166660248-a3c81a34-4334-48c2-846a-65759d761559.png) -->
+
+## Call Log
+
+Call Log allows user to check the call history of the hook. By default, it has been disabled. However, it can be configured by using environment variable `NC_AUTOMATION_LOG_LEVEL`.
+
+- `NC_AUTOMATION_LOG_LEVEL=OFF`: No logs will be displayed and no history will be inserted to meta database.
+- `NC_AUTOMATION_LOG_LEVEL=ERROR`: only error logs will be displayed and history of error logs will be inserted to meta database.
+- `NC_AUTOMATION_LOG_LEVEL=ALL`: Both error and success logs will be displayed and history of both types of logs will be inserted to meta database. **This option is only available for Enterprise Edition.**
+
+![image](https://user-images.githubusercontent.com/35857179/228790148-1e3f21c7-9385-413a-843f-b93073ca6bea.png)
 
 
 ## Triggers
@@ -48,6 +70,11 @@ The triggers will trigger asynchronously without blocking the actual operation.
 
   
 ## Accessing Data: Handlebars
+
+
+<alert type="warning">
+You can accessing data using handlebars for v1 webhooks only.
+</alert>
 
 The current row data and other details will be available in the hooks payload so the user can use [handlebar syntax](https://handlebarsjs.com/guide/#simple-expressions) to use data.
 
@@ -96,13 +123,15 @@ Detailed procedure for discord webhook described [here](https://support.discord.
 ### 2. Install Plugin
 
 -   Open 'App Store' (under Settings), hover over Discord tile. Click 'Install'.
-
-![Screenshot 2022-02-22 at 11 30 36 AM](https://user-images.githubusercontent.com/86527202/155085257-5bdde1d9-d7b5-471d-bf44-3c3920e7b853.png)
+  
+![Screenshot 2022-09-14 at 10 47 59 AM](https://user-images.githubusercontent.com/86527202/190066333-04bab4eb-f114-48e5-b3f9-6327cadb1ca7.png)
+<!-- ![Screenshot 2022-02-22 at 11 30 36 AM](https://user-images.githubusercontent.com/86527202/155085257-5bdde1d9-d7b5-471d-bf44-3c3920e7b853.png) -->
 
 -   Provide a name of your choice (not to be confused with Discord Channel name).
 -   Paste Discord Webhook URL copied from Step (1.) above.
-
-![Screenshot 2022-02-22 at 11 31 21 AM](https://user-images.githubusercontent.com/86527202/155085287-f5e45aab-fd33-4138-a7a9-6eddc6dc140b.png)
+  
+![Screenshot 2022-09-14 at 10 52 14 AM](https://user-images.githubusercontent.com/86527202/190066365-90e3136b-db24-4514-aa89-c1fb371b33ee.png)
+<!-- ![Screenshot 2022-02-22 at 11 31 21 AM](https://user-images.githubusercontent.com/86527202/155085287-f5e45aab-fd33-4138-a7a9-6eddc6dc140b.png) -->
 
 ### 3. Configure 
 
@@ -124,6 +153,7 @@ Detailed procedure for discord webhook described [here](https://support.discord.
 
 
 ## Slack
+
 ### 1. Create WebHook
 -   Details to create slack webhook are captured [here](https://api.slack.com/messaging/webhooks)
 
@@ -154,14 +184,18 @@ Detailed procedure for discord webhook described [here](https://support.discord.
 ### 2. Install Plugin
 
 -   Open 'App Store' (under Settings), hover over 'Microsoft Teams' tile. Click 'Install'.
+  
+![Screenshot 2022-09-14 at 10 53 22 AM](https://user-images.githubusercontent.com/86527202/190066409-03311add-3b36-4521-acf7-dba5ffdef3fb.png)
 
-![Screenshot 2022-02-22 at 7 32 52 PM](https://user-images.githubusercontent.com/86527202/155148122-60844b42-7d2a-4c0f-9778-a5bc4f9c0107.png)
+<!-- ![Screenshot 2022-02-22 at 7 32 52 PM](https://user-images.githubusercontent.com/86527202/155148122-60844b42-7d2a-4c0f-9778-a5bc4f9c0107.png) -->
 
 
 -   Provide a name of your choice (not to be confused with Teams Channel name).
 -   Paste MS Teams Webhook URL copied from Step (1.) above.
+  
+![Screenshot 2022-09-14 at 10 53 31 AM](https://user-images.githubusercontent.com/86527202/190066430-838eaa69-ac2c-49ce-a0eb-d84c97964f8b.png)
 
-<img width="414" alt="154971222-7fe2c25a-d8c6-46b0-ba1e-a05ff1cf6537" src="https://user-images.githubusercontent.com/86527202/155095720-ff1c052c-a4a7-4c10-8f30-d779dac336f3.png">
+<!-- <img width="414" alt="154971222-7fe2c25a-d8c6-46b0-ba1e-a05ff1cf6537" src="https://user-images.githubusercontent.com/86527202/155095720-ff1c052c-a4a7-4c10-8f30-d779dac336f3.png"> -->
 
 ### 3. Configure 
 
@@ -180,3 +214,13 @@ Detailed procedure for discord webhook described [here](https://support.discord.
     -   **Body**: Message to be posted over Teams channel, via webhooks on trigger of configured event.
         -   Body can contain plain text &
         -   Handlebars {{ }}
+
+## Webhook V2
+
+Webhook v2 is available after v0.106.0. Here's the differences.
+
+- Response Payload has been predefined and cannot configure in Body using Handlebars. The payload can be referenced under `Sample Payload` in Hook detail page.
+- Support the following bulk operations:
+    -   AFTER BULK INSERT
+    -   AFTER BULK UPDATE
+    -   AFTER BULK DELETE

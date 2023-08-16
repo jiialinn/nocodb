@@ -12,7 +12,7 @@ Once you've created the schemas, you can manipulate the data or invoke actions u
 
 Here's the overview of all APIs. For the details, please check out <a href="https://all-apis.nocodb.com/" target="_blank">NocoDB API Documentation</a>. 
 
-You may also interact with the API's resources via <a href="./accessing-apis#swagger-ui" target="_blank">Swagger UI</a>.
+You may also interact with the API's resources via <NuxtLink to="/developer-resources/accessing-apis#swagger-ui" target="_blank">Swagger UI</NuxtLink>.
 
 <alert type="success">
 Currently, the default value for {orgs} is <b>noco</b>. Users will be able to change it in the future release.
@@ -43,6 +43,7 @@ Currently, the default value for {orgs} is <b>noco</b>. Users will be able to ch
 | Public | Get | public | csvExport | /api/v1/db/public/shared-view/{sharedViewUuid}/rows/export/{type} |
 | Public | Get | public | dataRelationList | /api/v1/db/public/shared-view/{sharedViewUuid}/nested/{columnName} |
 | Public | Get | public | sharedViewMetaGet | /api/v1/db/public/shared-view/{sharedViewUuid}/meta |
+| Public | Get | public | groupedDataList | /api/v1/db/public/shared-view/{sharedViewUuid}/group/{columnId} |
 
 ### Data APIs
 
@@ -62,6 +63,7 @@ Currently, the default value for {orgs} is <b>noco</b>. Users will be able to ch
 | Data | Patch | dbTableRow | update | /api/v1/db/data/{orgs}/{projectName}/{tableName}/{rowId} |
 | Data | Delete| dbTableRow | delete | /api/v1/db/data/{orgs}/{projectName}/{tableName}/{rowId} |
 | Data | Get | dbTableRow | count | /api/v1/db/data/{orgs}/{projectName}/{tableName}/count |
+| Data | Get | dbTableRow | groupedDataList | /api/v1/db/data/{orgs}/{projectName}/{tableName}/group/{columnId} |
 | Data | Get | dbViewRow | list | /api/v1/db/data/{orgs}/{projectName}/{tableName}/views/{viewName} |
 | Data | Get | dbViewRow | findOne | /api/v1/db/data/{orgs}/{projectName}/{tableName}/views/{viewName}/find-one |
 | Data | Get | dbViewRow | groupBy | /api/v1/db/data/{orgs}/{projectName}/{tableName}/views/{viewName}/groupby |
@@ -71,6 +73,7 @@ Currently, the default value for {orgs} is <b>noco</b>. Users will be able to ch
 | Data | Patch | dbViewRow | update | /api/v1/db/data/{orgs}/{projectName}/{tableName}/views/{viewName}/{rowId} |
 | Data | Delete| dbViewRow | delete | /api/v1/db/data/{orgs}/{projectName}/{tableName}/views/{viewName}/{rowId} |
 | Data | Get | dbViewRow | count | /api/v1/db/data/{orgs}/{projectName}/{tableName}/views/{viewName}/count |
+| Data | Get | dbViewRow | groupedDataList | /api/v1/db/data/{orgs}/{projectName}/{tableName}/views/{viewName}/group/{columnId} |
 
 ### Meta APIs
 
@@ -117,14 +120,20 @@ Currently, the default value for {orgs} is <b>noco</b>. Users will be able to ch
 | Meta | Patch | dbView | update | /api/v1/db/meta/tables/{tableId} |
 | Meta | Delete| dbView | delete | /api/v1/db/meta/tables/{tableId} |
 | Meta | Post | dbView | reorder | /api/v1/db/meta/tables/{tableId}/reorder |
-| Meta | Post | dbView | formCreate | /api/v1/db/meta/forms |
-| Meta | Patch | dbView | formUpdate | /api/v1/db/meta/forms/{formId} |
-| Meta | Get | dbView | formRead | /api/v1/db/meta/forms/{formId} |
+| Meta | Post | dbView | formCreate | /api/v1/db/meta/tables/{tableId}/forms |
+| Meta | Patch | dbView | formUpdate | /api/v1/db/meta/forms/{formViewId} |
+| Meta | Get | dbView | formRead | /api/v1/db/meta/forms/{formViewId} |
 | Meta | Patch | dbView | formColumnUpdate | /api/v1/db/meta/form-columns/{formViewColumnId} |
-| Meta | Post | dbView | galleryCreate | /api/v1/db/meta/galleries |
-| Meta | Patch | dbView | galleryUpdate | /api/v1/db/meta/galleries/{galleriesId} |
-| Meta | Get | dbView | galleryRead | /api/v1/db/meta/galleries/{galleriesId} |
-| Meta | Post | dbView | gridCreate | /api/v1/db/meta/tables/${tableId}/grids |
+| Meta | Post | dbView | galleryCreate | /api/v1/db/meta/tables/{tableId}/galleries |
+| Meta | Patch | dbView | galleryUpdate | /api/v1/db/meta/galleries/{galleryViewId} |
+| Meta | Get | dbView | galleryRead | /api/v1/db/meta/galleries/{galleryViewId} |
+| Meta | Post | dbView | kanbanCreate | /api/v1/db/meta/tables/{tableId}/kanbans |
+| Meta | Patch | dbView | kanbanUpdate | /api/v1/db/meta/kanban/{kanbanViewId} |
+| Meta | Get | dbView | kanbanRead | /api/v1/db/meta/kanbans/{kanbanViewId} |
+| Meta | Post | dbView | mapCreate | /api/v1/db/meta/tables/{tableId}/maps |
+| Meta | Patch | dbView | mapUpdate | /api/v1/db/meta/maps/{mapViewId} |
+| Meta | Get | dbView | mapRead | /api/v1/db/meta/maps/{mapViewId} |
+| Meta | Post | dbView | gridCreate | /api/v1/db/meta/tables/{tableId}/grids |
 | Meta | Get | dbView | gridColumnsList | /api/v1/db/meta/grids/{gridId}/grid-columns |
 | Meta | Patch | dbView | gridColumnUpdate | /api/v1/db/meta/grid-columns/{columnId} |
 | Meta | Patch | dbView | update | /api/v1/db/meta/views/{viewId} |
@@ -169,6 +178,16 @@ Currently, the default value for {orgs} is <b>noco</b>. Users will be able to ch
 | Meta | Get | utils | appInfo | /api/v1/db/meta/nocodb/info |
 | Meta | Get | utils | appVersion | /api/v1/version |
 | Meta | Get | utils | appHealth | /api/v1/health |
+| Meta | Get | utils | aggregatedMetaInfo | /api/v1/aggregated-meta-info |
+| Meta | Get | orgUsers | list | /api/v1/users |
+| Meta | Post | orgUsers | add | /api/v1/users |
+| Meta | Patch | orgUsers | update | /api/v1/users/{userId} |
+| Meta | Delete | orgUsers | delete | /api/v1/users/{userId} |
+| Meta | Get | orgTokens | list | /api/v1/tokens |
+| Meta | Post | orgTokens | create | /api/v1/tokens |
+| Meta | Delete | orgTokens | delete | /api/v1/tokens/{token} |
+| Meta | Get | orgAppSettings | get | /api/v1/app-settings |
+| Meta | Post | orgAppSettings | set | /api/v1/app-settings |
 
 ## Query params
 
@@ -208,6 +227,41 @@ Currently, the default value for {orgs} is <b>noco</b>. Users will be able to ch
 | btw | between | (colName,btw,val1,val2) |
 | nbtw | not between | (colName,nbtw,val1,val2) |
 | like | like | (colName,like,%name) |
+| isWithin | is Within (Available in `Date` and `DateTime` only) | (colName,isWithin,sub_op) |
+| allof | includes all of | (colName,allof,val1,val2,...) |
+| anyof | includes any of | (colName,anyof,val1,val2,...) |
+| nallof | does not include all of (includes none or some, but not all of) | (colName,nallof,val1,val2,...) |
+| nanyof | does not include any of (includes none of) | (colName,nanyof,val1,val2,...) |
+
+## Comparison Sub-Operators
+
+The following sub-operators are available in `Date` and `DateTime` columns.
+
+| Operation       | Meaning                 | Example                           |
+|-----------------|-------------------------|-----------------------------------|
+| today           | today                   | (colName,eq,today)                |
+| tomorrow        | tomorrow                | (colName,eq,tomorrow)             |
+| yesterday       | yesterday               | (colName,eq,yesterday)            |
+| oneWeekAgo      | one week ago            | (colName,eq,oneWeekAgo)           |
+| oneWeekFromNow  | one week from now       | (colName,eq,oneWeekFromNow)       |
+| oneMonthAgo     | one month ago           | (colName,eq,oneMonthAgo)          |
+| oneMonthFromNow | one month from now      | (colName,eq,oneMonthFromNow)      |
+| daysAgo         | number of days ago      | (colName,eq,daysAgo,10)           |
+| daysFromNow     | number of days from now | (colName,eq,daysFromNow,10)       |
+| exactDate       | exact date              | (colName,eq,exactDate,2022-02-02) |
+
+For `isWithin` in `Date` and `DateTime` columns, the different set of sub-operators are used.
+
+| Operation        | Meaning                 | Example                                 |
+|------------------|-------------------------|-----------------------------------------|
+| pastWeek         | the past week           | (colName,isWithin,pastWeek)             |
+| pastMonth        | the past month          | (colName,isWithin,pastMonth)            |
+| pastYear         | the past year           | (colName,isWithin,pastYear)             |
+| nextWeek         | the next week           | (colName,isWithin,nextWeek)             |
+| nextMonth        | the next month          | (colName,isWithin,nextMonth)            |
+| nextYear         | the next year           | (colName,isWithin,nextYear)             |
+| nextNumberOfDays | the next number of days | (colName,isWithin,nextNumberOfDays,10)  |
+| pastNumberOfDays | the past number of days | (colName,isWithin,pastNumberOfDays,10)  |
 
 ## Logical Operators
 

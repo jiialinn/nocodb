@@ -1,16 +1,15 @@
 import cors from 'cors';
 import express from 'express';
-
-import Noco from '../lib/Noco';
-process.env.NC_VERSION = '0009044';
+import Noco from '../Noco';
 
 const server = express();
 server.enable('trust proxy');
-
+server.disable('etag');
+server.disable('x-powered-by');
 server.use(
   cors({
     exposedHeaders: 'xc-db-response',
-  })
+  }),
 );
 
 server.set('view engine', 'ejs');
@@ -18,34 +17,10 @@ process.env[
   `NC_DB`
 ] = `pg://localhost:5432?u=postgres&p=password&d=meta_v2_2022_06_13`;
 
-process.env[`DEBUG`] = 'xc*';
+//process.env[`DEBUG`] = 'xc*';
 
 (async () => {
-  const httpServer = server.listen(process.env.PORT || 8080, () => {
-    console.log(`App started successfully.\nVisit -> ${Noco.dashboardUrl}`);
+  const httpServer = server.listen(process.env.PORT || 8080, async () => {
+    server.use(await Noco.init({}, httpServer, server));
   });
-  server.use(await Noco.init({}, httpServer, server));
 })().catch((e) => console.log(e));
-
-/**
- * @copyright Copyright (c) 2021, Xgene Cloud Ltd
- *
- * @author Naveen MR <oof1lab@gmail.com>
- * @author Pranav C Balan <pranavxc@gmail.com>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
- */

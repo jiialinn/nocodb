@@ -691,7 +691,7 @@ export class SqliteUi {
   }
 
   static getAbstractType(col): any {
-    switch ((col.dt || col.dt).toLowerCase()) {
+    switch (col.dt?.replace(/\(\d+\)$/).toLowerCase()) {
       case 'date':
         return 'date';
       case 'datetime':
@@ -787,10 +787,12 @@ export class SqliteUi {
       case 'Attachment':
         colProp.dt = 'text';
         break;
+      case 'GeoData':
+        colProp.dt = 'text';
+        break;
       case 'Checkbox':
-        // colProp.dt = 'tinyint';
-        // colProp.dtxp = 1;
         colProp.dt = 'boolean';
+        colProp.cdf = '0';
         break;
       case 'MultiSelect':
         colProp.dt = 'text';
@@ -857,6 +859,7 @@ export class SqliteUi {
         break;
       case 'Rating':
         colProp.dt = 'integer';
+        colProp.cdf = '0';
         break;
       case 'Formula':
         colProp.dt = 'varchar';
@@ -898,7 +901,7 @@ export class SqliteUi {
     return colProp;
   }
 
-  static getDataTypeListForUiType(col: { uidt: UITypes }, idType: IDType) {
+  static getDataTypeListForUiType(col: { uidt: UITypes }, idType?: IDType) {
     switch (col.uidt) {
       case 'ID':
         if (idType === 'AG') {
@@ -923,6 +926,7 @@ export class SqliteUi {
       case 'LongText':
       case 'Attachment':
       case 'Collaborator':
+      case 'GeoData':
         return ['character', 'text', 'varchar'];
 
       case 'Checkbox':
@@ -1119,25 +1123,3 @@ export class SqliteUi {
 }
 
 // module.exports = PgUiHelp;
-/**
- * @copyright Copyright (c) 2021, Xgene Cloud Ltd
- *
- * @author Naveen MR <oof1lab@gmail.com>
- * @author Pranav C Balan <pranavxc@gmail.com>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
- */

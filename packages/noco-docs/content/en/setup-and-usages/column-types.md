@@ -10,9 +10,7 @@ menuTitle: 'Column Types'
 
 | Type | Description |
 |---|---|
-| [ID](#id) | Primary column of the table |
 | [LinkToAnotherRecord](#linktoanotherrecord) | Has Many or Many To Many columns |
-| [ForeignKey](#foreignkey)|  Belongs To relation  |
 | [SingleLineText](#singlelinetext) |  For short text |
 | [LongText](#longtext) | For lengthy string content |
 | [Attachment](#attachment) | File attachment column |
@@ -26,26 +24,24 @@ menuTitle: 'Column Types'
 | [Email](#email) | Email field |
 | [URL](#url) | Valid URL field |
 | [Number](#number) | Any type of number |
-|[Decimal](#decimal)| Fractional number |
-|[Currency](#currency)| Currency value |
-|[Percent](#percent)| Percentage |
-|[Duration](#duration)|  Duration |
-|[Rating](#rating)| Rating |
-|[Formula](#formula)|  Formula based generated column |
-| [Count](#count) | |
-|[DateTime](#datetime)| Date & Time selector |
-|[CreateTime](#createtime)| |
-|[AutoNumber](#autonumber)| |
-|[Geometry](#geometry)|  Geometry column |
-|[SpecificDBType](#specificdbtype)| Custom DB type option |
-
-
-
+| [Decimal](#decimal)| Fractional number |
+| [Currency](#currency)| Currency value |
+| [Percent](#percent)| Percentage |
+| [Duration](#duration)|  Duration |
+| [Rating](#rating)| Rating |
+| [Formula](#formula)|  Formula based generated column |
+| [Rollup](#rollup)| Performs calculations and aggregations |
+| [DateTime](#datetime)| Date & Time selector |
+| [QR Code](#qr-code)|  QR Code visualization of another referenced column |
+| [Barcode](#barcode)|  Barcode visualization of another referenced column |
+| [Geometry](#geometry)|  Geometry column |
+| [GeoData](#geodata)|  GeoData column |
+| [Json](#json)|  Json column |
+| [SpecificDBType](#specificdbtype)| Custom DB type option |
 
 ## Database Types
 
-
-### ID
+<!-- ### ID
 
 #### Available Database Types
 
@@ -54,20 +50,20 @@ menuTitle: 'Column Types'
 |**MySQL**|_All types are available_|int|
 |**PostgreSQL**|_All types are available_|int4|
 |**SQL Server**|_All types are available_|int|
-|**SQLite**|_All types are available_|integer|
+|**SQLite**|_All types are available_|integer| -->
 
 ### LinkToAnotherRecord
 
-N/A
+For more about Link To Another Record, please visit <NuxtLink to="/setup-and-usages/link-to-another-record" target="_blank">here</NuxtLink>.
 
-### ForeignKey
+<!-- ### ForeignKey
 #### Available Database Types
 |Database| Types|
 |-----|----------|
 |**MySQL**|_All types are available_|
 |**PostgreSQL**|_All types are available_|
 |**SQL Server**|_All types are available_|
-|**SQLite**|_All types are available_|
+|**SQLite**|_All types are available_| -->
 
 
 ### SingleLineText
@@ -265,18 +261,35 @@ N/A
 
 ### Formula
 
-For more about formula, please visit [here](./formulas).
+For more about Formulas, please visit <NuxtLink to="/setup-and-usages/formulas" target="_blank">here</NuxtLink>.
 
-### Count
+### QR-Code
 
-#### Available Database Types
+Encodes the value of a reference column as QR code. The following column types are supported for the for reference column: 
+* Formula
+* Single Line Text
+* Long Text
+* Phone Number
+* URL 
+* Email
 
-|Database| Types| Default Type|
-|-----|----------|----------|
-|**MySQL**|int, smallint, mediumint, bigint, serial|int|
-|**PostgreSQL**|int, integer, bigint, bigserial, int2, int4, int8, serial, serial2, serial8, smallint, smallserial|int8|
-|**SQL Server**|int, bigint, smallint, tinyint|int|
-|**SQLite**|int, integer, tinyint, smallint, mediumint, bigint, int2, int8|integer|
+Since it's a virtual column, the cell content (QR code) cannot be changed directly. 
+
+### Barcode
+
+Encodes the value of a reference column as Barcode. Supported barcode formats: CODE128, EAN, EAN-13, EAN-8, EAN-5, EAN-2, UPC (A), CODE39, ITF-14, MSI, Pharmacode, Codabar. The following column types are supported for the for reference column: 
+* Formula
+* Single Line Text
+* Long Text
+* Phone Number
+* URL 
+* Email
+
+Since it's a virtual column, the cell content (Barcode) cannot be changed directly.
+
+### Rollup
+
+For more about Rollup, please visit <NuxtLink to="/setup-and-usages/rollup" target="_blank">here</NuxtLink>.
 
 ### DateTime
 
@@ -289,7 +302,7 @@ For more about formula, please visit [here](./formulas).
 |**SQL Server**|datetime, datetime2, datetimeoffset|datetime|
 |**SQLite**|datetime, timestamp|datetime|
 
-### CreateTime
+<!-- ### CreateTime
 
 #### Available Database Types
 
@@ -298,7 +311,7 @@ For more about formula, please visit [here](./formulas).
 |**MySQL**|datetime, timestamp, varchar|datetime|
 |**PostgreSQL**|timestamp, timestamp without time zone, timestamptz, timestamp with time zone|datetime|
 |**SQL Server**|datetime, datetime2, datetimeoffset|datetime|
-|**SQLite**|datetime, timestamp|datetime|
+|**SQLite**|datetime, timestamp|datetime| -->
 
 
 ### Geometry
@@ -311,6 +324,35 @@ For more about formula, please visit [here](./formulas).
 |**PostgreSQL**|polygon, point, circle, box, line, lseg, path, circle|
 |**SQL Server**|geometry|
 |**SQLite**|text|
+
+
+### GeoData
+
+Encodes a geographic location which consists of a latitude and a longitude. 
+Both are internally stored as one string, where latitude and longitude are separated by ';'
+Example: "52.2134;29.1442"
+
+#### Available Database Types
+
+|Database| Types|
+|-----|----------|
+|**MySQL**|char, varchar, nchar, text, tinytext, mediumtext, longtext|
+|**PostgreSQL**|char, character, character varying, text|
+|**SQL Server**|decimal, float|
+|**SQLite**|character, text, varchar|
+
+
+### JSON
+
+#### Available Database Types
+|Database| Types|
+|-----|----------|
+|**MySQL**|json|
+|**PostgreSQL**|json|
+|**SQL Server**|text, ntext|
+|**SQLite**|text|
+
+
 
 ### SpecificDBType
 

@@ -8,60 +8,61 @@ menuTitle: 'Dashboard'
 
 ## Setup Your First Super Admin
 
-Once you have started NocoDB, you can visit the dashboard via `example.com/dashboard`.
-
-Click `Let's Begin` button to sign up.
-
-![image](https://user-images.githubusercontent.com/35857179/163138119-be4314f9-22eb-4df6-b0af-b6990c563795.png)
+Once you have started NocoDB, you can visit the dashboard via `example.com`. You will be redirected to `example.com/#/signup`. 
 
 Enter your work email and your password.
 
-<alert id="password-conditions">
-  Your password has at least 8 letters with one uppercase, one number and one special letter
-</alert>
+<img width="1492" alt="image" src="https://user-images.githubusercontent.com/35857179/194793294-fa027496-c3c3-44eb-a613-2ba3e3bd26c1.png">
 
-![image](https://user-images.githubusercontent.com/35857179/163138460-59ddd93f-a8ef-4c02-8b7b-037a53cefd77.png)
+<alert id="password-conditions">
+  Your password has at least 8 letters. No other constraints on case, numbers or special characters.
+</alert>
 
 ## Initialize Your First Project
 
 Once you have logged into NocoDB, you should see `My Projects`.
 
-![image](https://user-images.githubusercontent.com/35857179/163135335-652470ee-f69e-4b12-8884-63e8056bfce3.png)
+![Screenshot 2022-12-29 at 2 54 43 PM](https://user-images.githubusercontent.com/86527202/209932699-743ffea2-986f-443f-8198-f56b597de706.png)
+<!-- <img width="1494" alt="image" src="https://user-images.githubusercontent.com/35857179/194793424-c4451bf5-1486-46cf-b62f-86fc6d788d77.png"> -->
 
-To create a project, you can click `New Project`.  
-    
-![image](https://user-images.githubusercontent.com/35857179/167252813-84876756-f6a1-488a-a185-cbb09f163c5b.png)
+To create a new project, you can click `New Project`. 
+<!-- <img width="1492" alt="image" src="https://user-images.githubusercontent.com/35857179/194793457-e18e1112-2b44-4efc-8d98-5261a83a150c.png"> -->
 
-### Creating Empty Project
-
-Click `Create`, you need to specify the project name and API type. 
+You need to specify the project name. The data will be stored in `NC_DB`. If it is not specified, a local SQLite will be created and used.
 
 <alert>
-A local SQLite will be used.
+NC_DB is an environment variable used to store the meta data in the given database.
 </alert>
 
-![image](https://user-images.githubusercontent.com/35857179/163135608-5e135a73-afcd-40bb-9d26-f2970dab7143.png)
+![Screenshot 2022-12-29 at 2 54 57 PM](https://user-images.githubusercontent.com/86527202/209932936-8fe7334c-1a94-4073-ba19-478efb620808.png)
+<!-- <img width="1496" alt="image" src="https://user-images.githubusercontent.com/35857179/194793478-a4c20517-1c38-474d-8905-d1d3da560136.png"> -->
 
 ### Connecting to External Database
 
-Click `Create By Connecting To An External Database`, you need to specify the project name, API type, and other database parameters.
+Click on three-dot menu adjacent to `BASES`. Pick required database option from the menu `Connect to new datasource`. 
 
 <alert type="success">
-Tip 1: If you are running NocoDB on Docker and your local DB is running on your host machine, your Host Address would be host.docker.internal instead of localhost.
+Tip: If you are running NocoDB on Docker and your local DB is running on your host machine, your Host Address would be host.docker.internal instead of localhost.
 </alert>
 
-![image](https://user-images.githubusercontent.com/35857179/163135736-d209061e-893d-4441-aaaa-ff22a1c82ceb.png)
+![Screenshot 2022-12-29 at 2 55 39 PM](https://user-images.githubusercontent.com/86527202/209933294-9327ff16-21db-4aca-bf16-8cea8a1eb415.png)
+  
+Above menu is also accessible from `Team & Settings` > `Data Sources`. Click on `New` button to add existing database. 
+  
+![image](https://user-images.githubusercontent.com/35857179/219841162-6456c5cf-fd26-4a88-8de6-e8742c043607.png)
 
+You need to specify the project name, API type, and other database parameters.
+  
+![image](https://user-images.githubusercontent.com/35857179/219841283-1a42f9f6-4677-4e25-8ca9-a060753d1e1e.png)
+  
 Currently it supports MySQL, Postgres, MSSQL and SQLite.
-
-![image](https://user-images.githubusercontent.com/35857179/126597320-fd6b19a9-ed3e-4f4a-80b7-880a79a54a11.png)
 
 You can also configure associated SSL & advanced parameters.
 
-![image](https://user-images.githubusercontent.com/35857179/163135911-04e01016-0ffd-4f38-83a8-c667bd268759.png)
+<img width="689" alt="image" src="https://user-images.githubusercontent.com/35857179/189047293-05176c44-e162-495a-a7cd-e02377c1f42c.png">
 
 <alert type="success">
-Tip 2: You can click Edit Connection JSON and modify SSL settings in "ssl".
+Tip: You can click Edit Connection JSON and modify SSL settings in "ssl".
 </alert>
 
 ```json
@@ -83,7 +84,7 @@ Tip 2: You can click Edit Connection JSON and modify SSL settings in "ssl".
 ```
 
 <alert type="success">
-Tip 3: You can click Edit Connection JSON and specify the schema you want to use in "searchPath".
+Tip: You can click Edit Connection JSON and specify the schema you want to use in "searchPath".
 </alert>
 
 ```json
@@ -98,4 +99,4 @@ Tip 3: You can click Edit Connection JSON and specify the schema you want to use
 
 Click `Test Database Connection` to see if the connection can be established or not. NocoDB creates a new **empty database** with specified parameters if the database doesn't exist.
 
-![image](https://user-images.githubusercontent.com/35857179/163136039-ad521d74-6996-4173-84ba-cfc55392c3b7.png)
+<img width="505" alt="image" src="https://user-images.githubusercontent.com/35857179/194793513-feabf14f-1f62-4896-b06d-88548251511a.png">

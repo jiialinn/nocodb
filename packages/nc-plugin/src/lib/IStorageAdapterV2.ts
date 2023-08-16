@@ -1,34 +1,31 @@
-import IStorageAdapter from "./IStorageAdapter";
+import { Readable } from 'stream';
+
+import IStorageAdapter from './IStorageAdapter';
+
+/*
+  #ref: https://github.com/nocodb/nocodb/pull/5608
+    fileCreateByStream: write file from a readable stream to the storage
+    fileReadByStream: read file from the storage to a readable stream
+    getDirectoryList: get files available in a directory
+
+    These methods are added to support export/import without buffering all the data in memory.
+    The methods are only available for Local storage adapter for now, and will be implemented for other adapters later.
+    The methods are not used in current codebase, but will be used in future.
+*/
 
 export default interface IStorageAdapterV2 extends IStorageAdapter {
-  fileCreateByUrl(destPath: string, url: string, fileMeta?: FileMeta): Promise<any>
+  fileCreateByUrl(
+    destPath: string,
+    url: string,
+    fileMeta?: FileMeta
+  ): Promise<any>;
+  fileCreateByStream(destPath: string, readStream: Readable): Promise<void>;
+  fileReadByStream(key: string): Promise<Readable>;
+  getDirectoryList(path: string): Promise<string[]>;
 }
-
 
 interface FileMeta {
   fileName?: string;
   mimetype?: string;
   size?: number | string;
 }
-
-/**
- * @copyright Copyright (c) 2021, Xgene Cloud Ltd
- *
- * @author Pranav C Balan <pranavxc@gmail.com>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
- */

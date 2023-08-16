@@ -1,21 +1,26 @@
 ---
-title: 'Team & Auth'
+title: 'Team & Settings > Team & Auth'
 description: 'Breakdown of roles & permissions for team user management'
-position: 630
+position: 580
 category: 'Product'
-menuTitle: 'Team & Auth'
+menuTitle: 'Team & Settings > Team & Auth'
 ---
 
-Team & Auth can be found by clicking `Team & Settings` from the left navigation drawer and clicking `Team & Auth`.
+## Accessing Team & Auth 
 
-![image](https://user-images.githubusercontent.com/35857179/161902474-fd06678c-a171-4237-b171-dc028b3753de.png)
+- Click on `Team & Settings` from the `Project Menu` 
+- Access `Team & Auth` under `Settings`
+  
+<img width="322" alt="image" src="https://user-images.githubusercontent.com/35857179/194856648-67936db0-ee4d-4060-be3d-af9f86ef8fc6.png">
 
-![image](https://user-images.githubusercontent.com/35857179/161902746-aa59b8e5-06d2-4c07-ac60-c82f92b42752.png)
+## User Management
 
-## How to Add a User
+### How to Add a User
 
-1. Go to `Team & Auth`, click on `New User`.
-    ![image](https://user-images.githubusercontent.com/35857179/161903214-1e0f7ba0-6daf-4073-90c9-9d86a40c9f90.png)
+1. Go to `Team & Auth`, click on `Invite Team`
+
+![image](https://user-images.githubusercontent.com/35857179/219830800-481f372f-86b1-4e2f-865d-3fb7c10663f7.png)
+
 
 2. Enter the user's `E-mail`. Select `User Role`, and Click `Invite`.
 
@@ -23,14 +28,23 @@ Team & Auth can be found by clicking `Team & Settings` from the left navigation 
         Tip: You can add multiple comma (,) seperated emails
     </alert>
 
-    ![image](https://user-images.githubusercontent.com/35857179/161903296-cd6ea0d5-193f-4e66-aa7a-4cfc468216af.png)
+![Screenshot 2022-09-13 at 10 54 39 AM](https://user-images.githubusercontent.com/86527202/189817152-83fca866-7713-49ee-8068-d3eba1311353.png)
 
-    If you do not have an SMTP sender configured, make sure to copy the invite link and manually send it to your collaborator.
+If you do not have an SMTP sender configured, make sure to copy the invite link and manually send it to your collaborator.
+    
+![Screenshot 2022-09-13 at 10 54 22 AM](https://user-images.githubusercontent.com/86527202/189817156-f3dab634-dc25-4f9b-8126-865187aae254.png)
 
-    ![image](https://user-images.githubusercontent.com/35857179/161903764-1c875441-87f4-4b25-a864-441a23c96cea.png)
 
+### How to Update user permissions
 
-## User Role Permissions
+1. Use `Edit` <1> menu to assign a different role to existing user
+2. Use `Delete` <2> menu to remove a user from accessing current project
+  
+![image](https://user-images.githubusercontent.com/35857179/219830858-be7a4656-9f3b-440c-9a79-165f919223d7.png)
+
+------
+
+### User Role Permissions
 
 ### Advanced Options & Configurations
 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; Owner &nbsp; &nbsp;| &nbsp; &nbsp; Creator &nbsp; &nbsp; | &nbsp; &nbsp; Editor &nbsp; &nbsp;| Commenter | &nbsp; &nbsp; Viewer &nbsp; &nbsp;|
@@ -93,6 +107,25 @@ Team & Auth can be found by clicking `Team & Settings` from the left navigation 
 |	Project Info	        | ✅	| ✅	| ✅	| ✅	| ✅	|
 |	Swagger API	          | ✅	| ✅	| ✅	| ✅	| ✅	|
 
+## API Tokens Management
+
+NocoDB allows creating API tokens which allow it to be integrated seamlessly with 3rd party apps. API Token is a Nano ID with a length of 40. If you are passing API Token, make sure that the header is called `xc-token`.
+
+- Open `Project Menu`, click on `Team & Settings`
+  
+<img width="322" alt="image" src="https://user-images.githubusercontent.com/35857179/194856648-67936db0-ee4d-4060-be3d-af9f86ef8fc6.png">
+
+- Click `API Tokens Management` tab under `Team & Auth` section
+
+- Click Add New Token
+  
+![image](https://user-images.githubusercontent.com/35857179/219835108-037127bd-4bf6-4d96-b691-139bd141631c.png)
+
+- Type an recognizable name for your token and click `Generate`
+  
+![Screenshot 2022-09-14 at 10 20 10 AM](https://user-images.githubusercontent.com/86527202/190062801-db3fab83-7974-4dfe-9c83-bf0d8a7dba1e.png)
+
+- Copy API token to your clipboard; use action menu to the right of token list
 
 <!-- TODO: -->
 <!-- ### Automations

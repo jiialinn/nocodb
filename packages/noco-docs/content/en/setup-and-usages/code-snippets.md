@@ -8,38 +8,42 @@ menuTitle: 'Code Snippets'
 
 ## Overview
 
-Open a Project, Select a Table and Click `Get API Snippet` on the bottom right area. 
+In the table toolbar, click Table name button and click `Get API Snippet`.
 
-<img width="1335" alt="image" src="https://user-images.githubusercontent.com/35857179/166663362-43ffe3cc-1053-4bf6-a65e-e4b8bae69fcb.png">
+<img width="476" alt="image" src="https://user-images.githubusercontent.com/35857179/194796042-e80ee8dd-a26f-4b75-a7ff-7cfdab1dcc43.png">
 
 A modal box will be shown with sample code snippet for List API.
 
-![image](https://user-images.githubusercontent.com/35857179/166663478-3f802012-7bdc-4265-9ffe-6e51c4bcf4cd.png)
-
+<img width="1499" alt="image" src="https://user-images.githubusercontent.com/35857179/194796072-b521e3eb-4f25-42d9-bdfe-ef2dd22a1efa.png">
 
 ## Supported Snippet
 
 ### Shell
   - cURL
   - wget
+
 ### Javascript
   - Axios
   - Fetch
   - jQuery
   - XHR
+
 ### Node
   - Axios
   - Fetch
   - Request
   - Native
   - Unirest
+
 ### NocoDB SDK
   - Javascript
   - Node
+
 ### PHP
 ### Python
   - http.client
   - request
+
 ### Ruby
 ### Java
 ### C
